@@ -8,11 +8,13 @@
     "start": "next start",
     "lint": "eslint",
     "db:push": "dotenv -e .env.local -- drizzle-kit push",
-    "db:studio": "dotenv -e .env.local -- drizzle-kit studio"
+    "db:studio": "dotenv -e .env.local -- drizzle-kit studio",
+    "create-tenant": "dotenv -e .env.local -- tsx scripts/create-tenant.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.7.0",
     "@neondatabase/serverless": "^1.1.0",
+    "@netlify/blobs": "^10.7.12",
     "drizzle-orm": "^0.45.2",
     "next": "16.3.0",
     "react": "19.2.8",
@@ -28,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.10",
     "typescript": "^5"
   }
 }

@@ -21,7 +21,9 @@ export const tenants = pgTable('tenants', {
 export const tenantAdmins = pgTable('tenant_admins', {
   id: serial('id').primaryKey(),
   tenantId: integer('tenant_id').notNull().references(() => tenants.id, { onDelete: 'cascade' }),
-  clerkUserId: text('clerk_user_id').notNull().unique(),
+  email: text('email').notNull(),
+  // Null totdat de uitgenodigde admin voor het eerst inlogt; dan wordt dit geclaimd op basis van e-mailadres.
+  clerkUserId: text('clerk_user_id').unique(),
 });
 
 export const categorieen = pgTable('categorieen', {
