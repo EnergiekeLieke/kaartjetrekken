@@ -5,6 +5,10 @@
   # Turbopack's eigen build-cache bevat de env-waarden (voor snellere volgende builds),
   # maar die cache wordt nooit naar bezoekers verstuurd, dus hoeft niet gescand te worden.
   SECRETS_SCAN_OMIT_PATHS = ".netlify/.next/cache/**"
+  # Deze NEXT_PUBLIC_*-variabelen zijn met opzet openbaar (Clerk's publishable key en de
+  # sign-in/sign-up routes horen in de browser-code te staan). De echte geheimen
+  # (CLERK_SECRET_KEY, DATABASE_URL) blijven wel gescand.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,NEXT_PUBLIC_CLERK_SIGN_IN_URL,NEXT_PUBLIC_CLERK_SIGN_UP_URL"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
