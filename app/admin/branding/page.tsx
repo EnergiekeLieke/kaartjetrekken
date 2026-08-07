@@ -7,9 +7,12 @@ export default async function BrandingPage() {
   if (!tenant) return null;
 
   return (
-    <form action={updateBranding} className="space-y-6 max-w-lg">
+    <form
+      action={updateBranding}
+      className="space-y-6 max-w-lg bg-white rounded-2xl border border-el-light-bg p-6 shadow-sm"
+    >
       <div>
-        <label className="block text-sm font-medium mb-1">Logo</label>
+        <label className="block text-sm font-medium text-el-dark-slate mb-1">Logo</label>
         {tenant.logoUrl && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={tenant.logoUrl} alt="Huidig logo" className="h-12 mb-2 object-contain" />
@@ -23,39 +26,42 @@ export default async function BrandingPage() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Introtekst (boven de kaartjes)</label>
+        <label className="block text-sm font-medium text-el-dark-slate mb-1">Introtekst (boven de kaartjes)</label>
         <textarea
           name="introTekst"
           defaultValue={tenant.introTekst ?? ''}
           rows={3}
-          className="w-full border rounded-lg px-3 py-2"
+          className="w-full border border-el-light-bg rounded-lg px-3 py-2 focus:outline-none focus:border-el-dark-green"
         />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1">Tekst call-to-action knop</label>
+          <label className="block text-sm font-medium text-el-dark-slate mb-1">Tekst call-to-action knop</label>
           <input
             type="text"
             name="ctaTekst"
             defaultValue={tenant.ctaTekst ?? ''}
             placeholder="Bijv. Boek een sessie"
-            className="w-full border rounded-lg px-3 py-2"
+            className="w-full border border-el-light-bg rounded-lg px-3 py-2 focus:outline-none focus:border-el-dark-green"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">Link call-to-action knop</label>
+          <label className="block text-sm font-medium text-el-dark-slate mb-1">Link call-to-action knop</label>
           <input
             type="url"
             name="ctaUrl"
             defaultValue={tenant.ctaUrl ?? ''}
             placeholder="https://…"
-            className="w-full border rounded-lg px-3 py-2"
+            className="w-full border border-el-light-bg rounded-lg px-3 py-2 focus:outline-none focus:border-el-dark-green"
           />
         </div>
       </div>
 
-      <button type="submit" className="bg-gray-900 text-white rounded-lg px-5 py-2 text-sm">
+      <button
+        type="submit"
+        className="bg-el-dark-red text-el-cream rounded-lg px-5 py-2 text-sm hover:opacity-90 transition-opacity"
+      >
         Opslaan
       </button>
     </form>
