@@ -1,5 +1,10 @@
 [build]
   command = "npm run build"
 
+[build.environment]
+  # Turbopack's eigen build-cache bevat de env-waarden (voor snellere volgende builds),
+  # maar die cache wordt nooit naar bezoekers verstuurd, dus hoeft niet gescand te worden.
+  SECRETS_SCAN_OMIT_PATHS = ".netlify/.next/cache/**"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
