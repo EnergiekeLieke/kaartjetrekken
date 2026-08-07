@@ -50,7 +50,7 @@ export default function Speelpagina({
   }
 
   return (
-    <div className="max-w-2xl mx-auto py-12 px-4 space-y-8">
+    <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
       <div className="text-center space-y-2">
         {logoUrl && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -60,7 +60,7 @@ export default function Speelpagina({
         {introTekst && <p className="text-gray-600 text-sm max-w-md mx-auto">{introTekst}</p>}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
         {set.map((kaart, i) => {
           const cat = categorieMap.get(kaart.categorieId);
           const kleur = cat?.kleur ?? '#333333';
@@ -76,25 +76,27 @@ export default function Speelpagina({
             >
               <div className={`kk-flip-inner ${isGeflipt ? 'is-flipped' : ''}`}>
                 <div
-                  className="kk-flip-face rounded-xl border-2 flex flex-col items-center justify-center gap-2 p-2"
+                  className="kk-flip-face rounded-xl border-2 flex flex-col items-center justify-center gap-2 p-3"
                   style={{ borderColor: kleur, background: `${kleur}1A` }}
                 >
                   <span
-                    className="text-xs font-semibold uppercase tracking-wide text-center"
+                    className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-center"
                     style={{ color: kleur }}
                   >
                     {cat?.naam ?? ''}
                   </span>
                 </div>
                 <div
-                  className="kk-flip-face kk-flip-face-back rounded-xl border-2 flex flex-col items-center justify-center gap-2 p-3 overflow-hidden"
+                  className="kk-flip-face kk-flip-face-back rounded-xl border-2 flex flex-col items-center justify-center gap-2 p-4 overflow-hidden"
                   style={{ borderColor: kleur, background: kleur }}
                 >
                   {kaart.afbeeldingUrl && (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={kaart.afbeeldingUrl} alt="" className="max-h-16 object-contain" />
+                    <img src={kaart.afbeeldingUrl} alt="" className="max-h-20 sm:max-h-24 object-contain" />
                   )}
-                  <span className="text-xs text-white text-center leading-snug">{kaart.tekst}</span>
+                  <span className="text-xs sm:text-sm md:text-base text-white text-center leading-snug">
+                    {kaart.tekst}
+                  </span>
                 </div>
               </div>
             </button>
