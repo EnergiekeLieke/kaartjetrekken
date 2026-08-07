@@ -35,6 +35,7 @@ export default async function BrandingPage() {
         <textarea
           name="introTekst"
           defaultValue={tenant.introTekst ?? ''}
+          placeholder="Welkom bij Energieke Lieke. Trek hieronder een kaartje!"
           rows={3}
           className="w-full border border-el-light-bg rounded-lg px-3 py-2 focus:outline-none focus:border-el-dark-green"
         />
