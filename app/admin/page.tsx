@@ -1,23 +1,15 @@
 import { getTenantVoorIngelogdeAdmin } from '@/lib/tenant';
 
-export default async function AdminPage() {
+export default async function AdminOverzicht() {
   const tenant = await getTenantVoorIngelogdeAdmin();
-
-  if (!tenant) {
-    return (
-      <div className="max-w-md mx-auto py-16 px-4 text-center">
-        <h1 className="text-xl font-semibold mb-2">Nog geen klant gekoppeld</h1>
-        <p className="text-sm text-gray-600">
-          Dit account is nog niet gekoppeld aan een klant. Neem contact op met Energieke Lieke.
-        </p>
-      </div>
-    );
-  }
+  if (!tenant) return null;
 
   return (
-    <div className="max-w-2xl mx-auto py-16 px-4">
-      <h1 className="text-2xl font-semibold mb-2">Welkom, {tenant.naam}</h1>
-      <p className="text-sm text-gray-600">Admin-omgeving volgt hier binnenkort.</p>
+    <div className="space-y-2 text-sm text-gray-600">
+      <p>Welkom terug! Gebruik het menu hierboven om je branding, categorieën, kaartjes en instellingen te beheren.</p>
+      <p>
+        Je trekpagina staat live op <code className="bg-gray-100 px-1 rounded">/{tenant.slug}</code>.
+      </p>
     </div>
   );
 }

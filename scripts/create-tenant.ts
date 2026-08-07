@@ -12,11 +12,18 @@ function leesArg(naam: string): string {
   return arg.slice(prefix.length);
 }
 
+const GERESERVEERDE_SLUGS = ['admin', 'sign-in', 'sign-up', 'api'];
+
 async function main() {
   const naam = leesArg('naam');
   const slug = leesArg('slug');
   const email = leesArg('email');
   const appUrl = process.env.APP_URL ?? 'https://kaartjetrekken.netlify.app';
+
+  if (GERESERVEERDE_SLUGS.includes(slug)) {
+    console.error(`Slug "${slug}" is gereserveerd, kies een andere.`);
+    process.exit(1);
+  }
 
   const db = getDb();
 
