@@ -68,22 +68,29 @@ export default async function KaartenPage() {
               )}
             </ul>
 
-            <form action={maakKaart} className="flex items-start gap-3">
+            <form action={maakKaart} className="space-y-3">
               <input type="hidden" name="categorieId" value={cat.id} />
               <textarea
                 name="tekst"
                 required
                 rows={2}
                 placeholder="Tekst van het kaartje…"
-                className="flex-1 border border-el-light-bg rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-el-dark-green"
+                className="w-full border border-el-light-bg rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-el-dark-green"
               />
-              <input type="file" name="afbeelding" accept="image/*" className="text-xs w-32 shrink-0" />
-              <button
-                type="submit"
-                className="bg-el-dark-red text-el-cream rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity shrink-0"
-              >
-                Toevoegen
-              </button>
+              <div className="flex items-center justify-between gap-3">
+                <input
+                  type="file"
+                  name="afbeelding"
+                  accept="image/*"
+                  className="text-xs text-el-dark-slate/80 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-el-dark-slate file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-el-cream hover:file:opacity-90 file:transition-opacity"
+                />
+                <button
+                  type="submit"
+                  className="bg-el-dark-red text-el-cream rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity shrink-0"
+                >
+                  Toevoegen
+                </button>
+              </div>
             </form>
           </div>
         );
