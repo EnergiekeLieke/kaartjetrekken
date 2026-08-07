@@ -9,6 +9,7 @@ export const tenants = pgTable('tenants', {
   logoUrl: text('logo_url'),
   kleurPrimair: text('kleur_primair').notNull().default('#1a4a7a'),
   kleurSecundair: text('kleur_secundair').notNull().default('#d56119'),
+  kleurAchtergrond: text('kleur_achtergrond').notNull().default('#ffffff'),
   aantalKaartjesPerTrek: integer('aantal_kaartjes_per_trek').notNull().default(6),
   toegang: toegangEnum('toegang').notNull().default('open'),
   toegangscode: text('toegangscode'),
@@ -31,6 +32,7 @@ export const categorieen = pgTable('categorieen', {
   tenantId: integer('tenant_id').notNull().references(() => tenants.id, { onDelete: 'cascade' }),
   naam: text('naam').notNull(),
   kleur: text('kleur').notNull(),
+  achtergrondUrl: text('achtergrond_url'),
   volgorde: integer('volgorde').notNull().default(0),
 });
 

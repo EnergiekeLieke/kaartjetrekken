@@ -3,6 +3,13 @@ import { getStore } from '@netlify/blobs';
 const MAX_BYTES = 5 * 1024 * 1024;
 
 export function getAfbeeldingenStore() {
+  // Netlify injecteert siteID/token automatisch op Netlify zelf. Lokaal (next dev,
+  // niet netlify dev) moet dat handmatig, met een Personal Access Token.
+  const siteID = process.env.NETLIFY_SITE_ID;
+  const token = process.env.NETLIFY_API_TOKEN;
+  if (siteID && token) {
+    return getStore('afbeeldingen', { siteID, token });
+  }
   return getStore('afbeeldingen');
 }
 

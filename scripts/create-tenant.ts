@@ -1,3 +1,4 @@
+import { eq } from 'drizzle-orm';
 import { clerkClient } from '@clerk/nextjs/server';
 import { getDb } from '../lib/db';
 import { tenants, tenantAdmins } from '../lib/db/schema';
@@ -26,6 +27,12 @@ async function main() {
   }
 
   const db = getDb();
+
+  const [bestaand] = await db.select().from(tenants).where(eq(tenants.slug, slug)).limit(1);
+  if (bestaand) {
+    console.error(`Slug "${slug}" is al in gebruik door "${bestaand.naam}". Kies een andere slug.`);
+    process.exit(1);
+  }
 
   const [tenant] = await db.insert(tenants).values({ naam, slug }).returning();
   await db.insert(tenantAdmins).values({ tenantId: tenant.id, email });

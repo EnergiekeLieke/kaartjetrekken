@@ -14,7 +14,14 @@ export default async function KlantPagina({ params }: { params: Promise<{ slug: 
   const heeftToegang = tenant.toegang === 'open' || cookieStore.get(`toegang-${slug}`)?.value === '1';
 
   if (!heeftToegang) {
-    return <ToegangsGate slug={slug} tenantNaam={tenant.naam} logoUrl={tenant.logoUrl} />;
+    return (
+      <ToegangsGate
+        slug={slug}
+        tenantNaam={tenant.naam}
+        logoUrl={tenant.logoUrl}
+        kleurAchtergrond={tenant.kleurAchtergrond}
+      />
+    );
   }
 
   const initieleKaarten = trekKaarten(tenant.categorieen, tenant.kaarten, tenant.aantalKaartjesPerTrek);
@@ -24,6 +31,7 @@ export default async function KlantPagina({ params }: { params: Promise<{ slug: 
       naam={tenant.naam}
       logoUrl={tenant.logoUrl}
       kleurPrimair={tenant.kleurPrimair}
+      kleurAchtergrond={tenant.kleurAchtergrond}
       introTekst={tenant.introTekst}
       ctaTekst={tenant.ctaTekst}
       ctaUrl={tenant.ctaUrl}

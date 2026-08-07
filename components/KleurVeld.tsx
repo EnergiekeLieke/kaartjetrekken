@@ -26,6 +26,8 @@ export default function KleurVeld({
           value={waarde}
           onChange={(e) => setWaarde(e.target.value)}
           maxLength={7}
+          pattern="^#[0-9A-Fa-f]{6}$"
+          title="Een hexcode van 6 tekens, bijvoorbeeld #1A4A7A"
           className="min-w-0 flex-1 border rounded-lg px-3 py-2 font-mono text-sm uppercase"
         />
         <input

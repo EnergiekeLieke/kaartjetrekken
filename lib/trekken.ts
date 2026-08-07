@@ -1,4 +1,4 @@
-export type Categorie = { id: number; naam: string; kleur: string };
+export type Categorie = { id: number; naam: string; kleur: string; achtergrondUrl: string | null };
 export type Kaart = { id: number; categorieId: number; tekst: string; afbeeldingUrl: string | null };
 
 function shuffle<T>(arr: T[]): T[] {

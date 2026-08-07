@@ -2,7 +2,7 @@ import { eq, asc } from 'drizzle-orm';
 import { getTenantVoorIngelogdeAdmin } from '@/lib/tenant';
 import { getDb } from '@/lib/db';
 import { categorieen, kaarten } from '@/lib/db/schema';
-import { maakKaart, verwijderKaart } from '@/lib/admin-actions';
+import { maakKaart, verwijderKaart, verplaatsKaart } from '@/lib/admin-actions';
 import VerwijderKnop from '@/components/VerwijderKnop';
 
 export default async function KaartenPage() {
@@ -43,7 +43,7 @@ export default async function KaartenPage() {
             </h2>
 
             <ul className="space-y-2 mb-4">
-              {catKaarten.map((kaart) => (
+              {catKaarten.map((kaart, index) => (
                 <li
                   key={kaart.id}
                   className="flex items-center gap-3 bg-el-cream/60 border border-el-light-bg rounded-lg p-3 text-sm"
@@ -53,8 +53,33 @@ export default async function KaartenPage() {
                     <img src={kaart.afbeeldingUrl} alt="" className="h-8 w-8 object-cover rounded shrink-0" />
                   )}
                   <span className="flex-1 text-el-dark-slate">{kaart.tekst}</span>
-                  <form>
+                  <form className="flex items-center gap-2 shrink-0">
                     <input type="hidden" name="id" value={kaart.id} />
+                    <input type="hidden" name="categorieId" value={cat.id} />
+                    <div className="flex flex-col">
+                      <button
+                        type="submit"
+                        formAction={verplaatsKaart}
+                        name="richting"
+                        value="omhoog"
+                        disabled={index === 0}
+                        className="text-el-dark-slate/60 hover:text-el-dark-red disabled:opacity-20 disabled:hover:text-el-dark-slate/60 leading-none text-xs px-1"
+                        aria-label="Naar boven verplaatsen"
+                      >
+                        ▲
+                      </button>
+                      <button
+                        type="submit"
+                        formAction={verplaatsKaart}
+                        name="richting"
+                        value="omlaag"
+                        disabled={index === catKaarten.length - 1}
+                        className="text-el-dark-slate/60 hover:text-el-dark-red disabled:opacity-20 disabled:hover:text-el-dark-slate/60 leading-none text-xs px-1"
+                        aria-label="Naar beneden verplaatsen"
+                      >
+                        ▼
+                      </button>
+                    </div>
                     <VerwijderKnop
                       formAction={verwijderKaart}
                       bevestiging="Dit kaartje verwijderen?"

@@ -25,9 +25,10 @@ export default async function BrandingPage() {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <KleurVeld name="kleurPrimair" defaultValue={tenant.kleurPrimair} label="Primaire kleur" />
         <KleurVeld name="kleurSecundair" defaultValue={tenant.kleurSecundair} label="Secundaire kleur" />
+        <KleurVeld name="kleurAchtergrond" defaultValue={tenant.kleurAchtergrond} label="Achtergrondkleur" />
       </div>
 
       <div>
