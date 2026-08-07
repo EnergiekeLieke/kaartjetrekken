@@ -5,7 +5,7 @@ export default async function AdminOverzicht() {
   if (!tenant) return null;
 
   return (
-    <div className="space-y-2 text-sm text-el-dark-slate/70 bg-white rounded-2xl border border-el-light-bg p-6 shadow-sm">
+    <div className="space-y-3 text-sm text-el-dark-slate bg-white rounded-2xl border border-el-light-bg p-6 shadow-sm leading-relaxed">
       <p>Welkom terug! Gebruik het menu hierboven om je branding, categorieën, kaartjes en instellingen te beheren.</p>
       <p>
         Je trekpagina staat live op{' '}

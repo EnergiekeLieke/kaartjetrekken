@@ -17,7 +17,7 @@ export default async function KaartenPage() {
 
   if (cats.length === 0) {
     return (
-      <p className="text-sm text-el-dark-slate/60">
+      <p className="text-sm text-el-dark-slate/80">
         Maak eerst een categorie aan bij{' '}
         <a href="/admin/categorieen" className="text-el-dark-red underline underline-offset-2">
           Categorieën
@@ -28,20 +28,25 @@ export default async function KaartenPage() {
   }
 
   return (
-    <div className="space-y-10 max-w-lg">
+    <div className="space-y-6 max-w-lg">
       {cats.map((cat) => {
         const catKaarten = kaartenLijst.filter((k) => k.categorieId === cat.id);
         return (
-          <div key={cat.id}>
-            <h2 className="font-salmon text-base text-el-dark-slate mb-3 flex items-center gap-2">
-              <span className="inline-block w-3 h-3 rounded-full" style={{ background: cat.kleur }} />
+          <div
+            key={cat.id}
+            className="bg-white rounded-2xl border border-el-light-bg shadow-sm p-5"
+            style={{ borderLeftWidth: 4, borderLeftColor: cat.kleur }}
+          >
+            <h2 className="font-salmon text-base text-el-dark-slate mb-4 flex items-center gap-2">
+              <span className="inline-block w-3 h-3 rounded-full shrink-0" style={{ background: cat.kleur }} />
               {cat.naam}
             </h2>
+
             <ul className="space-y-2 mb-4">
               {catKaarten.map((kaart) => (
                 <li
                   key={kaart.id}
-                  className="flex items-center gap-3 bg-white border border-el-light-bg rounded-lg p-3 text-sm shadow-sm"
+                  className="flex items-center gap-3 bg-el-cream/60 border border-el-light-bg rounded-lg p-3 text-sm"
                 >
                   {kaart.afbeeldingUrl && (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -59,10 +64,11 @@ export default async function KaartenPage() {
                 </li>
               ))}
               {catKaarten.length === 0 && (
-                <p className="text-xs text-el-dark-slate/50">Nog geen kaartjes in deze categorie.</p>
+                <p className="text-xs text-el-dark-slate/70">Nog geen kaartjes in deze categorie.</p>
               )}
             </ul>
-            <form action={maakKaart} className="flex items-start gap-3 bg-white border border-el-light-bg rounded-lg p-3 shadow-sm">
+
+            <form action={maakKaart} className="flex items-start gap-3">
               <input type="hidden" name="categorieId" value={cat.id} />
               <textarea
                 name="tekst"
