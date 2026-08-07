@@ -37,7 +37,7 @@ async function main() {
   });
 
   console.log(`Klant "${naam}" aangemaakt op /${slug}.`);
-  console.log(`Uitnodiging verstuurd naar ${email}. Trekpagina: ${appUrl}/${slug}`);
+  console.log(`Uitnodiging verstuurd naar ${email}. Speelpagina: ${appUrl}/${slug}`);
 }
 
 main().catch((err) => {

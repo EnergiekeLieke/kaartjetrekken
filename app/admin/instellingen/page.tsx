@@ -23,7 +23,7 @@ export default async function InstellingenPage() {
       </div>
 
       <fieldset>
-        <legend className="block text-sm font-medium text-el-dark-slate mb-2">Toegang tot de trekpagina</legend>
+        <legend className="block text-sm font-medium text-el-dark-slate mb-2">Toegang tot de speelpagina</legend>
         <label className="flex items-center gap-2 mb-2 text-sm text-el-dark-slate">
           <input type="radio" name="toegang" value="open" defaultChecked={tenant.toegang === 'open'} />
           Open link, geen code nodig

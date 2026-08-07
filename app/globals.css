@@ -11,7 +11,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Huisstijl Energieke Lieke, alleen voor het admin-paneel (niet de trekpagina van klanten) */
+  /* Huisstijl Energieke Lieke, alleen voor het admin-paneel (niet de speelpagina van klanten) */
   --color-el-dark-red: #9e3816;
   --color-el-dark-green: #3b5633;
   --color-el-mid-green: #758d69;

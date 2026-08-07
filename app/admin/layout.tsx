@@ -31,7 +31,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             rel="noopener noreferrer"
             className="text-sm font-medium text-el-orange hover:text-el-light-bg underline underline-offset-2"
           >
-            Bekijk trekpagina →
+            Bekijk speelpagina →
           </a>
         </div>
       </header>

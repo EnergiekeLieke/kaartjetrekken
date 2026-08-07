@@ -15,7 +15,7 @@ type Props = {
   kaarten: Kaart[];
 };
 
-export default function Trekpagina({
+export default function Speelpagina({
   naam,
   logoUrl,
   kleurPrimair,

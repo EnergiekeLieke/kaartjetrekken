@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { getTenantMetInhoud } from '@/lib/queries';
 import ToegangsGate from '@/components/ToegangsGate';
-import Trekpagina from '@/components/Trekpagina';
+import Speelpagina from '@/components/Speelpagina';
 
 export default async function KlantPagina({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -17,7 +17,7 @@ export default async function KlantPagina({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <Trekpagina
+    <Speelpagina
       naam={tenant.naam}
       logoUrl={tenant.logoUrl}
       kleurPrimair={tenant.kleurPrimair}
