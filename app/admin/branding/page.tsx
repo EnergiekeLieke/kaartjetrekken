@@ -21,7 +21,7 @@ export default async function BrandingPage() {
           type="file"
           name="logo"
           accept="image/*"
-          className="text-sm text-el-dark-slate/80 file:mr-4 file:cursor-pointer file:rounded-lg file:border-0 file:bg-el-dark-red file:px-4 file:py-2 file:text-sm file:font-medium file:text-el-cream hover:file:opacity-90 file:transition-opacity"
+          className="w-full text-sm text-el-dark-slate/80 file:mr-4 file:cursor-pointer file:rounded-lg file:border-0 file:bg-el-dark-red file:px-4 file:py-2 file:text-sm file:font-medium file:text-el-cream hover:file:opacity-90 file:transition-opacity"
         />
       </div>
 

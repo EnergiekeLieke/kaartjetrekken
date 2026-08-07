@@ -82,7 +82,7 @@ export default async function KaartenPage() {
                   type="file"
                   name="afbeelding"
                   accept="image/*"
-                  className="text-xs text-el-dark-slate/80 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-el-dark-slate file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-el-cream hover:file:opacity-90 file:transition-opacity"
+                  className="min-w-0 flex-1 text-xs text-el-dark-slate/80 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-el-dark-slate file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-el-cream hover:file:opacity-90 file:transition-opacity"
                 />
                 <button
                   type="submit"
