@@ -50,7 +50,7 @@ export default function Speelpagina({
   }
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
+    <div className="max-w-4xl mx-auto py-12 px-4 space-y-8">
       <div className="text-center space-y-2">
         {logoUrl && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -60,7 +60,7 @@ export default function Speelpagina({
         {introTekst && <p className="text-gray-600 text-sm max-w-md mx-auto">{introTekst}</p>}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
         {set.map((kaart, i) => {
           const cat = categorieMap.get(kaart.categorieId);
           const kleur = cat?.kleur ?? '#333333';
@@ -80,21 +80,21 @@ export default function Speelpagina({
                   style={{ borderColor: kleur, background: `${kleur}1A` }}
                 >
                   <span
-                    className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-center"
+                    className="text-sm sm:text-base font-semibold uppercase tracking-wide text-center"
                     style={{ color: kleur }}
                   >
                     {cat?.naam ?? ''}
                   </span>
                 </div>
                 <div
-                  className="kk-flip-face kk-flip-face-back rounded-xl border-2 flex flex-col items-center justify-center gap-2 p-4 overflow-hidden"
+                  className="kk-flip-face kk-flip-face-back rounded-xl border-2 flex flex-col items-center justify-center gap-3 p-5 overflow-hidden"
                   style={{ borderColor: kleur, background: kleur }}
                 >
                   {kaart.afbeeldingUrl && (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={kaart.afbeeldingUrl} alt="" className="max-h-20 sm:max-h-24 object-contain" />
+                    <img src={kaart.afbeeldingUrl} alt="" className="max-h-24 sm:max-h-28 object-contain" />
                   )}
-                  <span className="text-xs sm:text-sm md:text-base text-white text-center leading-snug">
+                  <span className="text-sm sm:text-base md:text-lg text-white text-center leading-snug">
                     {kaart.tekst}
                   </span>
                 </div>
