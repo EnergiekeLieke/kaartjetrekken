@@ -13,6 +13,7 @@ type Props = {
   aantalKaartjesPerTrek: number;
   categorieen: Categorie[];
   kaarten: Kaart[];
+  initieleKaarten: Kaart[];
 };
 
 export default function Speelpagina({
@@ -25,8 +26,12 @@ export default function Speelpagina({
   aantalKaartjesPerTrek,
   categorieen,
   kaarten,
+  initieleKaarten,
 }: Props) {
-  const [set, setSet] = useState<Kaart[]>(() => trekKaarten(categorieen, kaarten, aantalKaartjesPerTrek));
+  // De eerste set komt als prop mee vanaf de server, zodat server- en client-render
+  // exact dezelfde (willekeurige) kaarten tonen. Zelf trekken met Math.random() tijdens
+  // de eerste render zou een hydration-mismatch geven (server en client trekken dan elk apart).
+  const [set, setSet] = useState<Kaart[]>(initieleKaarten);
   const [omgedraaid, setOmgedraaid] = useState<number | null>(null);
   const categorieMap = new Map(categorieen.map((c) => [c.id, c]));
 
