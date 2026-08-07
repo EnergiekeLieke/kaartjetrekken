@@ -1,5 +1,6 @@
 import { getTenantVoorIngelogdeAdmin } from '@/lib/tenant';
 import { updateBranding } from '@/lib/admin-actions';
+import KleurVeld from '@/components/KleurVeld';
 
 export default async function BrandingPage() {
   const tenant = await getTenantVoorIngelogdeAdmin();
@@ -17,14 +18,8 @@ export default async function BrandingPage() {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium mb-1">Primaire kleur</label>
-          <input type="color" name="kleurPrimair" defaultValue={tenant.kleurPrimair} className="h-10 w-full" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1">Secundaire kleur</label>
-          <input type="color" name="kleurSecundair" defaultValue={tenant.kleurSecundair} className="h-10 w-full" />
-        </div>
+        <KleurVeld name="kleurPrimair" defaultValue={tenant.kleurPrimair} label="Primaire kleur" />
+        <KleurVeld name="kleurSecundair" defaultValue={tenant.kleurSecundair} label="Secundaire kleur" />
       </div>
 
       <div>

@@ -4,6 +4,7 @@ import { getDb } from '@/lib/db';
 import { categorieen } from '@/lib/db/schema';
 import { maakCategorie, updateCategorie, verwijderCategorie } from '@/lib/admin-actions';
 import VerwijderKnop from '@/components/VerwijderKnop';
+import KleurVeld from '@/components/KleurVeld';
 
 export default async function CategorieenPage() {
   const tenant = await getTenantVoorIngelogdeAdmin();
@@ -22,7 +23,9 @@ export default async function CategorieenPage() {
         {lijst.map((cat) => (
           <form key={cat.id} action={updateCategorie} className="flex items-center gap-3 border rounded-lg p-3">
             <input type="hidden" name="id" value={cat.id} />
-            <input type="color" name="kleur" defaultValue={cat.kleur} className="h-9 w-12 shrink-0" />
+            <div className="w-28 shrink-0">
+              <KleurVeld name="kleur" defaultValue={cat.kleur} />
+            </div>
             <input type="text" name="naam" defaultValue={cat.naam} className="flex-1 border rounded-lg px-3 py-1.5 text-sm" />
             <button type="submit" className="text-sm text-gray-600 underline shrink-0">
               Opslaan
@@ -38,9 +41,8 @@ export default async function CategorieenPage() {
       </div>
 
       <form action={maakCategorie} className="flex items-end gap-3 border-t pt-6">
-        <div>
-          <label className="block text-xs text-gray-500 mb-1">Kleur</label>
-          <input type="color" name="kleur" defaultValue="#1a4a7a" className="h-9 w-12" />
+        <div className="w-28 shrink-0">
+          <KleurVeld name="kleur" defaultValue="#1a4a7a" label="Kleur" />
         </div>
         <div className="flex-1">
           <label className="block text-xs text-gray-500 mb-1">Naam</label>
