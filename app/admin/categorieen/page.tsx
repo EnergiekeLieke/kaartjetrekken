@@ -33,9 +33,7 @@ export default async function CategorieenPage() {
                 <div className="flex flex-col shrink-0">
                   <button
                     type="submit"
-                    formAction={verplaatsCategorie}
-                    name="richting"
-                    value="omhoog"
+                    formAction={verplaatsCategorie.bind(null, 'omhoog')}
                     disabled={index === 0}
                     className="text-el-dark-slate/60 hover:text-el-dark-red disabled:opacity-20 disabled:hover:text-el-dark-slate/60 leading-none px-1"
                     aria-label="Naar boven verplaatsen"
@@ -44,9 +42,7 @@ export default async function CategorieenPage() {
                   </button>
                   <button
                     type="submit"
-                    formAction={verplaatsCategorie}
-                    name="richting"
-                    value="omlaag"
+                    formAction={verplaatsCategorie.bind(null, 'omlaag')}
                     disabled={index === lijst.length - 1}
                     className="text-el-dark-slate/60 hover:text-el-dark-red disabled:opacity-20 disabled:hover:text-el-dark-slate/60 leading-none px-1"
                     aria-label="Naar beneden verplaatsen"

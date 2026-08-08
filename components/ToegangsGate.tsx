@@ -24,7 +24,6 @@ export default function ToegangsGate({
           // eslint-disable-next-line @next/next/no-img-element
           <img src={logoUrl} alt={tenantNaam} className="h-16 mx-auto mb-4 object-contain" />
         )}
-        <h1 className="text-xl font-semibold mb-2">{tenantNaam}</h1>
         <p className="text-sm text-gray-600 mb-6">Vul de toegangscode in om een kaartje te trekken.</p>
         <form action={formAction} className="space-y-3">
           <input

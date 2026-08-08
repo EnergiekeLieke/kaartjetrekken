@@ -93,7 +93,6 @@ export default function Speelpagina({
             // eslint-disable-next-line @next/next/no-img-element
             <img src={logoUrl} alt={naam} className="h-16 mx-auto object-contain" />
           )}
-          <h1 className="text-2xl font-semibold">{naam}</h1>
           {introTekst && <p className="text-gray-600 text-sm max-w-md mx-auto">{introTekst}</p>}
         </div>
 

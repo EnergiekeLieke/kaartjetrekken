@@ -59,9 +59,7 @@ export default async function KaartenPage() {
                     <div className="flex flex-col">
                       <button
                         type="submit"
-                        formAction={verplaatsKaart}
-                        name="richting"
-                        value="omhoog"
+                        formAction={verplaatsKaart.bind(null, 'omhoog')}
                         disabled={index === 0}
                         className="text-el-dark-slate/60 hover:text-el-dark-red disabled:opacity-20 disabled:hover:text-el-dark-slate/60 leading-none text-xs px-1"
                         aria-label="Naar boven verplaatsen"
@@ -70,9 +68,7 @@ export default async function KaartenPage() {
                       </button>
                       <button
                         type="submit"
-                        formAction={verplaatsKaart}
-                        name="richting"
-                        value="omlaag"
+                        formAction={verplaatsKaart.bind(null, 'omlaag')}
                         disabled={index === catKaarten.length - 1}
                         className="text-el-dark-slate/60 hover:text-el-dark-red disabled:opacity-20 disabled:hover:text-el-dark-slate/60 leading-none text-xs px-1"
                         aria-label="Naar beneden verplaatsen"

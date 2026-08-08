@@ -140,11 +140,10 @@ export async function verwijderCategorie(formData: FormData) {
   revalidatePath(`/${tenant.slug}`);
 }
 
-export async function verplaatsCategorie(formData: FormData) {
+export async function verplaatsCategorie(richting: 'omhoog' | 'omlaag', formData: FormData) {
   const tenant = await vereisTenant();
   const db = getDb();
   const id = Number(formData.get('id'));
-  const richting = String(formData.get('richting'));
 
   const lijst = await db
     .select()
@@ -203,12 +202,11 @@ export async function verwijderKaart(formData: FormData) {
   revalidatePath(`/${tenant.slug}`);
 }
 
-export async function verplaatsKaart(formData: FormData) {
+export async function verplaatsKaart(richting: 'omhoog' | 'omlaag', formData: FormData) {
   const tenant = await vereisTenant();
   const db = getDb();
   const id = Number(formData.get('id'));
   const categorieId = Number(formData.get('categorieId'));
-  const richting = String(formData.get('richting'));
 
   const lijst = await db
     .select()
